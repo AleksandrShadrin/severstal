@@ -21,7 +21,7 @@ export async function getStaticPaths() {
 	const paths = transformedData.filter((entity) => (entity ? true : false));
 	return {
 		paths,
-		fallback: true,
+		fallback: false,
 	};
 }
 

@@ -19,10 +19,9 @@ export async function getStaticPaths() {
 			  }
 	);
 	const paths = transformedData.filter((entity) => (entity ? true : false));
-
 	return {
 		paths,
-		fallback: true,
+		fallback: "blocking",
 	};
 }
 
@@ -30,7 +29,10 @@ export async function getStaticProps({ params }) {
 	const { id } = params;
 	const uri = `https://severstal-7dd9c-default-rtdb.firebaseio.com/Notes/${id}.json`;
 	const response = await axios.get(uri);
-	if (response.status !== 200) return;
+	if (response.status !== 200)
+		return {
+			notFound: true,
+		};
 
 	return {
 		props: {

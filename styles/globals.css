@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind utilities;
+@tailwind components;
+
+body {
+	@apply h-screen;
+}
+
+.invalid {
+	@apply border-red-600 bg-orange-200;
+}
+.Label {
+	@apply text-xl text-opacity-80;
+}

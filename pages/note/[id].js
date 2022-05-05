@@ -25,7 +25,7 @@ export async function getStaticPaths() {
 	};
 }
 
-export async function getStaticProps({ params }) {
+export async function getServerSideProps({ params }) {
 	const { id } = params;
 	const uri = `https://severstal-7dd9c-default-rtdb.firebaseio.com/Notes/${id}.json`;
 	const response = await axios.get(uri);
